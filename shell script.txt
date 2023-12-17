@@ -1,0 +1,153 @@
+1.Copy files from one folder to another:
+#!/bin/bash
+
+# Specify source and destination folders
+source_folder="/path/to/source_folder"
+destination_folder="/path/to/destination_folder"
+
+# Copy files from source to destination
+cp "$source_folder"/* "$destination_folder"/
+
+
+
+
+2.Count number of words, characters, and lines:
+#!/bin/bash
+
+# Specify the file to analyze
+file="/path/to/your/file.txt"
+
+# Use wc (word count) command to count words, characters, and lines
+words=$(wc -w < "$file")
+characters=$(wc -c < "$file")
+lines=$(wc -l < "$file")
+
+echo "Number of words: $words"
+echo "Number of characters: $characters"
+echo "Number of lines: $lines"
+
+
+
+3.Describe files in different formats:
+#!/bin/bash
+
+# Specify the file to describe
+file="/path/to/your/file.txt"
+
+# Use stat command to display file information
+stat "$file"
+
+
+
+4.Find factorial of a given number:
+#!/bin/bash
+
+echo "Enter a number:"
+read num
+
+fact=1
+
+for ((i=1; i<=num; i++)); do
+  fact=$((fact * i))
+done
+
+echo "Factorial of $num is: $fact"
+
+
+5.Display first 10 natural numbers:
+#!/bin/bash
+
+echo "First 10 natural numbers:"
+for ((i=1; i<=10; i++)); do
+  echo "$i"
+done
+
+
+6.Display Fibonacci series:
+#!/bin/bash
+
+echo "Enter the number of terms in the Fibonacci series:"
+read n
+
+a=0
+b=1
+
+echo "Fibonacci series:"
+for ((i=0; i<n; i++)); do
+  echo -n "$a "
+  temp=$((a + b))
+  a=$b
+  b=$temp
+done
+echo
+
+
+7. Check if a given number is prime:
+#!/bin/bash
+
+echo "Enter a number:"
+read num
+
+prime="true"
+
+for ((i=2; i<=num/2; i++)); do
+  if [ $((num % i)) -eq 0 ]; then
+    prime="false"
+    break
+  fi
+done
+
+if [ "$prime" = "true" ]; then
+  echo "$num is a prime number."
+else
+  echo "$num is not a prime number."
+fi
+
+
+8. Find the biggest of three numbers:
+#!/bin/bash
+
+echo "Enter three numbers:"
+read a b c
+
+if [ $a -gt $b ] && [ $a -gt $c ]; then
+  echo "$a is the biggest number."
+elif [ $b -gt $a ] && [ $b -gt $c ]; then
+  echo "$b is the biggest number."
+else
+  echo "$c is the biggest number."
+fi
+
+
+9.Reverse a number
+#!/bin/bash
+
+echo "Enter a number:"
+read num
+
+reverse=0
+
+while [ $num -gt 0 ]; do
+  digit=$((num % 10))
+  reverse=$((reverse * 10 + digit))
+  num=$((num / 10))
+done
+
+echo "Reversed number: $reverse"
+
+
+10. Find the sum of individual digits:
+#!/bin/bash
+
+echo "Enter a number:"
+read num
+
+sum=0
+
+while [ $num -gt 0 ]; do
+  digit=$((num % 10))
+  sum=$((sum + digit))
+  num=$((num / 10))
+done
+
+echo "Sum of individual digits: $sum"

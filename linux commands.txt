@@ -1,0 +1,74 @@
+1.Display top 10 processes in descending order:
+ps aux --sort=-%mem | head -n 11
+
+2.Display processes with the highest memory usage:
+ps aux --sort=-%mem | head -n 2
+
+3.Display current logged in user and logname:
+echo "Current user: $USER"
+echo "Logname: $LOGNAME"
+
+4.Display current shell, home directory, operating system type, current path setting, current working directory:
+echo "Shell: $SHELL"
+echo "Home directory: $HOME"
+echo "OS Type: $(uname -s)"
+echo "Current path setting: $PATH"
+echo "Current working directory: $PWD"
+
+5.Display OS version, release number, kernel version:
+uname -a
+
+6.Write a command to display the first 15 columns from each line in the file:
+awk '{print substr($0, 1, 15)}' filename
+
+7.Cut specified columns from a file and display them:
+cut -f 1,3,5 filename
+
+8.Sort given file ignoring upper and lower case:
+sort -f filename
+
+9.Displays only directories in the current working directory:
+find . -maxdepth 1 -type d
+
+10.Copying files from one place to another:
+cp source_file destination_directory
+
+11.Moving files from one place to another:
+mv source_file destination_directory
+
+12.Removing a specific directory with various options:
+rm -r directory_name
+
+13.List the numbers of users currently logged in the system and then sort it:
+who | cut -d' ' -f1 | sort
+
+14.Merge two files into one file:
+cat file1 file2 > merged_file
+
+15.Change the access mode of one file:
+chmod permissions filename
+
+Display the last ten lines of the file:
+tail -n 10 filename
+
+Locate files in a directory and in a subdirectory:
+find /path/to/directory -name "filename"
+
+Display the contents of all files having a name starting with "ap" followed by any number of characters:
+cat ap*.*
+
+Rename any file aaa to aaa.aa1, where aa1 is the user login name:
+mv aaa aaa.$(whoami)
+
+Search for the word ‘picture’ in the file and display lines containing it:
+grep 'picture' filename
+
+Search for all occurrences of ‘Rebecca’ or ‘rebecca’ in a file and display lines containing either:
+grep -i 'Rebecca' filename
+
+Search for all four-letter words whose first letter is ‘b’ and last letter is ‘k’:
+grep -i '^b..k$' filename
+
+Display only those lines that do not contain the search pattern:
+grep -v 'pattern' filename
+
